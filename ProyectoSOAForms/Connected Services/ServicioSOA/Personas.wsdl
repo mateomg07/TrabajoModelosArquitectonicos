@@ -1,0 +1,245 @@
+<?xml version="1.0" encoding="utf-8"?>
+<wsdl:definitions xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:mime="http://schemas.xmlsoap.org/wsdl/mime/" xmlns:tns="http://Localhost/" xmlns:s="http://www.w3.org/2001/XMLSchema" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:tm="http://microsoft.com/wsdl/mime/textMatching/" xmlns:http="http://schemas.xmlsoap.org/wsdl/http/" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" targetNamespace="http://Localhost/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+  <wsdl:types>
+    <s:schema elementFormDefault="qualified" targetNamespace="http://Localhost/">
+      <s:element name="BuscaRegistro">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="cadena" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="BuscaRegistroResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="BuscaRegistroResult">
+              <s:complexType>
+                <s:sequence>
+                  <s:element ref="s:schema" />
+                  <s:any />
+                </s:sequence>
+              </s:complexType>
+            </s:element>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="NuevoRegistro">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="NOMBRE" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="APELLIDO" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="DIRECCION" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="CIUDAD" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="TELEFONO" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="NuevoRegistroResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="NuevoRegistroResult" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="ActualizarRegistro">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="ID" type="s:int" />
+            <s:element minOccurs="0" maxOccurs="1" name="NOMBRE" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="APELLIDO" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="DIRECCION" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="CIUDAD" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="TELEFONO" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="ActualizarRegistroResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="ActualizarRegistroResult" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="EliminaRegistro">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="ID" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="EliminaRegistroResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="EliminaRegistroResult" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="HelloWorld">
+        <s:complexType />
+      </s:element>
+      <s:element name="HelloWorldResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="HelloWorldResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+    </s:schema>
+  </wsdl:types>
+  <wsdl:message name="BuscaRegistroSoapIn">
+    <wsdl:part name="parameters" element="tns:BuscaRegistro" />
+  </wsdl:message>
+  <wsdl:message name="BuscaRegistroSoapOut">
+    <wsdl:part name="parameters" element="tns:BuscaRegistroResponse" />
+  </wsdl:message>
+  <wsdl:message name="NuevoRegistroSoapIn">
+    <wsdl:part name="parameters" element="tns:NuevoRegistro" />
+  </wsdl:message>
+  <wsdl:message name="NuevoRegistroSoapOut">
+    <wsdl:part name="parameters" element="tns:NuevoRegistroResponse" />
+  </wsdl:message>
+  <wsdl:message name="ActualizarRegistroSoapIn">
+    <wsdl:part name="parameters" element="tns:ActualizarRegistro" />
+  </wsdl:message>
+  <wsdl:message name="ActualizarRegistroSoapOut">
+    <wsdl:part name="parameters" element="tns:ActualizarRegistroResponse" />
+  </wsdl:message>
+  <wsdl:message name="EliminaRegistroSoapIn">
+    <wsdl:part name="parameters" element="tns:EliminaRegistro" />
+  </wsdl:message>
+  <wsdl:message name="EliminaRegistroSoapOut">
+    <wsdl:part name="parameters" element="tns:EliminaRegistroResponse" />
+  </wsdl:message>
+  <wsdl:message name="HelloWorldSoapIn">
+    <wsdl:part name="parameters" element="tns:HelloWorld" />
+  </wsdl:message>
+  <wsdl:message name="HelloWorldSoapOut">
+    <wsdl:part name="parameters" element="tns:HelloWorldResponse" />
+  </wsdl:message>
+  <wsdl:portType name="PersonasSoap">
+    <wsdl:operation name="BuscaRegistro">
+      <wsdl:input message="tns:BuscaRegistroSoapIn" />
+      <wsdl:output message="tns:BuscaRegistroSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="NuevoRegistro">
+      <wsdl:input message="tns:NuevoRegistroSoapIn" />
+      <wsdl:output message="tns:NuevoRegistroSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="ActualizarRegistro">
+      <wsdl:input message="tns:ActualizarRegistroSoapIn" />
+      <wsdl:output message="tns:ActualizarRegistroSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="EliminaRegistro">
+      <wsdl:input message="tns:EliminaRegistroSoapIn" />
+      <wsdl:output message="tns:EliminaRegistroSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="HelloWorld">
+      <wsdl:input message="tns:HelloWorldSoapIn" />
+      <wsdl:output message="tns:HelloWorldSoapOut" />
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:binding name="PersonasSoap" type="tns:PersonasSoap">
+    <soap:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="BuscaRegistro">
+      <soap:operation soapAction="http://Localhost/BuscaRegistro" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="NuevoRegistro">
+      <soap:operation soapAction="http://Localhost/NuevoRegistro" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ActualizarRegistro">
+      <soap:operation soapAction="http://Localhost/ActualizarRegistro" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="EliminaRegistro">
+      <soap:operation soapAction="http://Localhost/EliminaRegistro" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="HelloWorld">
+      <soap:operation soapAction="http://Localhost/HelloWorld" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:binding name="PersonasSoap12" type="tns:PersonasSoap">
+    <soap12:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="BuscaRegistro">
+      <soap12:operation soapAction="http://Localhost/BuscaRegistro" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="NuevoRegistro">
+      <soap12:operation soapAction="http://Localhost/NuevoRegistro" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ActualizarRegistro">
+      <soap12:operation soapAction="http://Localhost/ActualizarRegistro" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="EliminaRegistro">
+      <soap12:operation soapAction="http://Localhost/EliminaRegistro" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="HelloWorld">
+      <soap12:operation soapAction="http://Localhost/HelloWorld" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="Personas">
+    <wsdl:port name="PersonasSoap" binding="tns:PersonasSoap">
+      <soap:address location="https://localhost:44384/Personas.asmx" />
+    </wsdl:port>
+    <wsdl:port name="PersonasSoap12" binding="tns:PersonasSoap12">
+      <soap12:address location="https://localhost:44384/Personas.asmx" />
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>
